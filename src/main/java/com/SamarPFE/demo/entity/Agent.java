@@ -1,11 +1,12 @@
 package com.SamarPFE.demo.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Agent {
 
-	
+	@Id
 	private int id;
 	private String nom;
 	private String email;

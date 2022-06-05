@@ -1,5 +1,9 @@
 package com.SamarPFE.demo.controller;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +25,8 @@ import com.SamarPFE.demo.repository.UserRepository;
 @RestController
 @RequestMapping(path = "user")
 public class UserController {
-	
-	
+	@Autowired
+	EntityManager em;
 	@Autowired
 	UserRepository userRepo;
 	@PostMapping(path = "/add")
@@ -47,5 +51,33 @@ public class UserController {
 		    return ResponseEntity.ok().body(userRepo.findByEmailAndPassword(email, password));
  
 	  }
+	
+	@GetMapping("/getAll")
+	  public List<User> getAll() 
+	  {
+		
+		
+		    return this.userRepo.findAll();
+	  }
+	
+	@GetMapping("/deleteUser")
+	  public boolean deleteUser(@PathParam("id") int id) 
+	  {
+		
+		
+		   this.userRepo.deleteById(id);
+		   return true;
+	  }
+
+	@GetMapping("/getAlldm")
+	  public List get() 
+	  {
+		
+		
+		Query query=	this.em.createNativeQuery("select * from dt122");
+		  List val =  query.getResultList() ;
+		  return val;
+	  }
+	
 
 }
