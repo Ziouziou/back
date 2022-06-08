@@ -17,21 +17,39 @@ public class User {
 	private String name;
 	@Column(nullable= false ,unique = true)
 	private String email;
+	private int phoneNumber;
 	@Column(nullable = false)
 	private String password;
 	private String role;
 	
 	public User() {}
-	public User(int id, String name, String email, String password, String role) {
+	
+	
+	
+	public User(int id, String name, String email, int phoneNumber, String password, String role) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
+		this.phoneNumber = phoneNumber;
 		this.password = password;
-		this.role=role;
+		this.role = role;
 	}
-	
-	
+
+
+
+	public int getPhoneNumber() {
+		return phoneNumber;
+	}
+
+
+
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+
+
 	public String getRole() {
 		return role;
 	}
