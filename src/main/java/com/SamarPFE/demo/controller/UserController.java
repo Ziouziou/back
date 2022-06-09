@@ -116,6 +116,7 @@ public class UserController {
 		u.get().setEmail(user.getEmail());
 		u.get().setName(user.getName());
 		u.get().setRole(user.getRole());
+		//test
 		u.get().setPhoneNumber(user.getPhoneNumber());
 		
 		this.userRepo.save(u.get());
